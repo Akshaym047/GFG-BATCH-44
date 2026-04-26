@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Log file location
-LOGFILE="/var/log/filesystem_management.log"
+LOGFILE="filesystem_management.log"
 
 # Function to create directories
 create_directory() {
