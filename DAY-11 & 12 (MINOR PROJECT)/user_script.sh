@@ -1,5 +1,5 @@
 #!/bin/bash
-LOGFILE="/var/log/user_management.log"
+LOGFILE="user_management.log"
 
 add_user() {
     read -p "Enter username to add: " username
