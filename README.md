@@ -11,7 +11,7 @@
   
 
 
-EKS Cluster Connection Commands
+## EKS Cluster Connection Commands
 
   aws eks --region ap-south-1 describe-cluster --name gfgCluster --query cluster.status
   
