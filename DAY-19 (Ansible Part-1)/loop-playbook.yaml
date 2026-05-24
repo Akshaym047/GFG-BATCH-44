@@ -1,0 +1,28 @@
+---
+- hosts: gfg
+  become: yes
+
+  vars:
+    operation: install
+    packages:
+      - git
+      - htop
+
+  tasks:
+    - name: Install packages
+      action: yum name={{ item }} state=present
+      loop: "{{ packages }}"
+      when: operation == "install"
+
+    - name: Remove packages
+      action: yum name={{ item }} state=absent
+      loop: "{{ packages }}"
+      when: operation == "remove"
+
+    - name: Autoremove unused packages (only on removal)
+      command: yum autoremove -y
+      when: operation == "remove"
+
+    - name: Clean yum cache (only on removal)
+      command: yum clean all
+      when: operation == "remove"
